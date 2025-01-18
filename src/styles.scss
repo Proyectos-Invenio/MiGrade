@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+// Import Custom Variables
+@import '../public/scss/variables';
+
+// Import Bootstrap variables for use within theme
+@import "bootstrap/scss/functions.scss";
+@import "bootstrap/scss/variables.scss";
+
+// Import spacing variables
+@import "../public/scss/variables/spacing";
+
+// Import navigation variables
+@import "../public/scss/variables/navigation";
+
+// Import Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Import Custom SCSS
+@import "../public/scss/global";
+
+// Layout
+@import "../public/scss/layout/dashboard-default";
+@import "../public/scss/layout/dashboard-fixed";
+@import "../public/scss/layout/error";
+
+// Navigation
+@import "../public/scss/navigation/nav.scss";
+@import "../public/scss/navigation/topnav.scss";
+@import "../public/scss/navigation/sidenav/sidenav.scss";
+@import "../public/scss/navigation/sidenav/sidenav-dark.scss";
+@import "../public/scss/navigation/sidenav/sidenav-light.scss";
+
+// Custom Components & Widgets (Optional)
+@import "../public/scss/custom/btn-group";
+
+// Plugins
+@import "../public/scss/plugins/simple-datatables.scss";
+
+// Import Bootstrap Icons
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Import Ng Select
+// @import "@ng-select/ng-select/themes/default.theme.css";
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.ng-select.ng-select-opened > .ng-select-container {
+  background: #f2f4f7;
+  border-color: transparent;
+}
+.ng-select .ng-select-container {
+  background-color: #f8f9fa;
+  border: none transparent;
+}
+.ng-select.ng-select-disabled > .ng-select-container {
+  background-color: #e9ecef !important;
+}
+
+
+ul {
+  li {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #5b5b5b;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  /* margin-right: 5px; */
+}

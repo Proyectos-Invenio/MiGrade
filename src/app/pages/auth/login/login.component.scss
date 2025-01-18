@@ -1,0 +1,33 @@
+.login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background: #fff;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container h2 {
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+.forgot-password {
+    text-align: right;
+    display: block;
+}
+
+.forgot-password a {
+    color: #2e72b8;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,45 @@
+/* Estilo principal para el contenedor del botón */
+.select-button {
+    background-color: #f8f9fa; /* Fondo claro */
+    border-radius: 12px; /* Bordes redondeados */
+    padding: 4px; /* Espaciado interno */
+    display: inline-flex;
+    gap: 6px;
+    border: 0px solid #e0e0e0; /* Borde gris claro */
+}
+  
+/* Botones individuales */
+.btn-option {
+    background-color: transparent; /* Fondo transparente por defecto */
+    border: none; /* Sin bordes adicionales */
+    color: #6c757d; /* Color de texto gris */
+    font-weight: 500;
+    padding: 8px 16px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: all 0.3s ease;
+}
+  
+/* Estilo del botón seleccionado */
+.btn-check:checked + .btn-option {
+    background-color: #ffffff; /* Fondo blanco para el botón activo */
+    color: #4A0531; /* Color primario */
+    font-weight: semibold; /* Texto más grueso */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    border-radius: 8px; /* Bordes redondeados */
+}
+  
+  /* Hover para botones no seleccionados */
+.btn-option:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Fondo gris claro en hover */
+    color: #495057; /* Color de texto ligeramente más oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+label.btn.btn-option {
+    padding: 6px;
+}
+
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .btn.dropdown-toggle-split:first-child, .btn-group > .btn-group:not(:last-child) > .btn {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}

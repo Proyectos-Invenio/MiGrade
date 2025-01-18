@@ -1,0 +1,30 @@
+//
+// Global
+//
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html,
+body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+label {
+    font-size: .9rem !important;
+}
+
+input, button, select, optgroup, textarea {
+    font-size: 0.9rem !important;
+}
+
+.sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
+    color: #2e72b8;
+}
+
+.sb-sidenav-dark .sb-sidenav-menu .nav-link {
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.ng-select div, .ng-select input, .ng-select span {
+    font-size: 0.8rem;
+}

@@ -1,0 +1,23 @@
+.custom-table {
+    th, td {
+        font-size: 0.8rem; // Ajusta el tamaño del texto según sea necesario
+        padding: 0.5rem; // Ajusta el relleno según sea necesario
+    }
+
+    th {
+        font-weight: bold; // Opcional: hace que los encabezados sean negritas
+    }
+
+    td {
+        vertical-align: middle; // Alinea verticalmente el contenido de las celdas
+    }
+
+    .btn-migrade {
+        font-size: 0.75rem; // Ajusta el tamaño del texto del botón según sea necesario
+    }
+
+    .input-sm {
+        height: 30px;
+        font-size: 14px;
+    }
+}

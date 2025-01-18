@@ -1,1 +1,2 @@
-# MiGrade
+![MiGrade Logo](./public/svg/migrade.svg)
+

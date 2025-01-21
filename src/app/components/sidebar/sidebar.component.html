@@ -47,12 +47,12 @@
     </div>
     <div class="sb-sidenav-footer bg-migrade text-white d-flex flex-column align-items-start justify-content-center p-3">
         <div class="d-flex align-items-center">
-            <div class="avatar rounded-circle bg-white text-migrade fw-bold d-flex align-items-center justify-content-center me-2"  style="width: 40px; height: 40px">
+            <div class="avatar rounded-circle bg-white text-migrade fw-bold d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px">
                 {{ inicialesUsuario }}
             </div>
-            <div>
-                <div class="fw-bold">{{ usuario.name }}</div>
-                <span style="color: #dfdfdf">{{ usuario.identification }}</span>
+            <div class="d-flex flex-column">
+                <div class="fw-bold ">{{ usuario.nombre }}</div>
+                <span style="color: #dfdfdf; margin-top: -5px;">{{ usuario.rol }}</span>
             </div>
         </div>
     </div>

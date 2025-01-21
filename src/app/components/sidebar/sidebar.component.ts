@@ -28,7 +28,7 @@ export class SidebarComponent {
     }
 
     get inicialesUsuario(): string {
-        const nombre = this.usuario.name || '';
+        const nombre = this.usuario.nombre || '';
         return `${nombre.charAt(0)}`.toUpperCase();
     }
 

@@ -1,30 +1,23 @@
-interface ISubCategoria {
-    url: string;
-    sub_categoria: string;
-}
-
-interface ICategoria {
-    url: string | null;
-    categoria: string;
-    subcategorias: ISubCategoria[] | null;
-    iconos: string | null;
+export interface ICategoria {
+  url: string | null;
+  titulo: string;
+  icon: string | null;
 }
 
 export interface IMenuJson {
-    seccion: string;
-    categorias: ICategoria[];
+  categorias: ICategoria[];
 }
 
 export interface IUsuarioMenu {
-    menu_json: IMenuJson;
+  menu_json: ICategoria[];
 }
 
 export interface IUsuarios {
-    id: number
-    nombre: string
-    usuario: string
-    correo: string
-    id_pais: number
-    pais: string
-    codigo: string
+  id: number;
+  nombre: string;
+  usuario: string;
+  correo: string;
+  id_pais: number;
+  pais: string;
+  codigo: string;
 }

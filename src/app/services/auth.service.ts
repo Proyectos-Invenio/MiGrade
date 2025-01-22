@@ -53,10 +53,10 @@ export class AuthService {
     });
   }
 
-  getUsuarioMenu(id_usuario: any): Observable<any> {
+  getUsuarioMenu(rol_usuario: any): Observable<any> {
     const token = localStorage.getItem('auth_token');
     const headers = this.headers.set('Authorization', `Bearer ${token}`);
-    return this._http.get<any>(`${this.baseUrl}auth/user/menu/${id_usuario}`, {
+    return this._http.get<any>(`${this.baseUrl}auth/rol/menu/${rol_usuario}`, {
       headers,
     });
   }

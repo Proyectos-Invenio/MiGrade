@@ -1,0 +1,89 @@
+<div class="container-fluid my-4">
+  <div class="row mb-3">
+    <div class="col-md-12 d-flex justify-content-between align-items-center">
+      <h5 class="text-migrade">Roles</h5>
+      <div class="d-flex gap-2">
+        <button
+          pButton
+          type="button"
+          label="Agregar Administrador"
+          class="btn btn-sm btn-migrade"
+        >
+          <i class="pi pi-plus" style="font-size: 0.7rem"></i>
+          Crear Rol
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div *ngIf="roles.length > 0" class="card">
+        <p-table
+          #dt
+          [value]="roles"
+          [rows]="10"
+          stripedRows
+          [rowsPerPageOptions]="[10, 15, 30, 50, 100, 150, 200]"
+          [loading]="loading"
+          [paginator]="true"
+          [globalFilterFields]="['id', 'nombre']"
+          class="custom-table"
+          dataKey="id"
+        >
+          <ng-template pTemplate="caption">
+            <div class="d-flex justify-content-end">
+              <p-iconfield iconPosition="left" class="ml-auto">
+                <p-inputicon styleClass="pi pi-search" />
+                <input
+                  pInputText
+                  type="text"
+                  size="small"
+                  class="input-sm"
+                  (input)="applyFilterGlobal($event)"
+                  placeholder="Buscar..."
+                />
+              </p-iconfield>
+            </div>
+          </ng-template>
+
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="width: 4rem"><p-tableHeaderCheckbox /></th>
+              <th pSortableColumn="id">
+                ID <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
+              </th>
+              <th pSortableColumn="rol">
+                Roles <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
+              </th>
+              <th>Opciones</th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-item>
+            <tr>
+              <td>
+                <p-tableCheckbox [value]="item" />
+              </td>
+              <td>{{ item.id }}</td>
+              <td>{{ item.rol }}</td>
+              <td>
+                <a class="btn btn-sm border-0 rounded-circle">
+                  <i class="pi pi-pencil"></i>
+                </a>
+                <a class="btn btn-sm border-0 rounded-circle">
+                  <i class="pi pi-trash"></i>
+                </a>
+              </td>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="5">No se encontraron roles.</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>

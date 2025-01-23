@@ -7,13 +7,14 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule, Table } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { ProfesorService } from '../../../services/profesor.service';
 import { IProfesor } from '../../../interfaces/usuarios';
 
 @Component({
   selector: 'app-profe',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule],
+  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule, LazyLoadImageModule],
   templateUrl: './profe.component.html',
   styleUrl: './profe.component.scss'
 })
@@ -48,7 +49,4 @@ export class ProfeComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dt?.filterGlobal(filterValue, 'contains');
   }
-
-
-
 }

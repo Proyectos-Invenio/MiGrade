@@ -6,7 +6,7 @@
                 <ng-container *ngFor="let categoria of seccion.menu_json">
                     <a class="nav-link fw-semibold" [routerLink]="[categoria.url]">
                         <div class="sb-nav-link-icon">
-                            <i class="bi {{ categoria.icon }}"></i>
+                            <i class="pi {{ categoria.icon }}"></i>
                         </div>
                         {{ categoria.titulo }}
                     </a>

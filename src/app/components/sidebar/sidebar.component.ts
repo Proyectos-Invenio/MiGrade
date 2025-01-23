@@ -9,7 +9,7 @@ import { ICategoria, IUsuarioMenu } from '../../interfaces/auth';
   standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss'
+  styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent {
   public menu: IUsuarioMenu[] = [];
@@ -52,7 +52,7 @@ export class SidebarComponent {
       ...item,
       menu_json: item.menu_json.map((cat: ICategoria) => ({
         ...cat,
-        url: this.normalizarUrl(cat.url),
+        url: cat.url,
       })),
     }));
   }
@@ -61,6 +61,6 @@ export class SidebarComponent {
     console.log('URL:', url);
 
     if (!url) return '#'; // Si no hay URL, retorna un placeholder
-    return url.startsWith('http') ? url : `http://localhost:4200${url}`;
+    return url.startsWith('http') ? url : `http://localhost:s4200${url}`;
   }
 }

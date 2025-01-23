@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { ICategoria, IUsuarioMenu } from '../../interfaces/auth';
+import { IMenu, IUsuarioMenu } from '../../interfaces/menu';
 
 @Component({
   selector: 'app-sidebar',
@@ -50,7 +50,7 @@ export class SidebarComponent {
 
     return menu.map((item) => ({
       ...item,
-      menu_json: item.menu_json.map((cat: ICategoria) => ({
+      menu_json: item.menu_json.map((cat: IMenu) => ({
         ...cat,
         url: cat.url,
       })),

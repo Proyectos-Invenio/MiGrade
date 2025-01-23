@@ -7,13 +7,14 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule, Table } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { AdministradoresService } from '../../../services/administrador.service';
 import { IAdministrador } from '../../../interfaces/usuarios';
 
 @Component({
   selector: 'app-administrador',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule],
+  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule, LazyLoadImageModule],
   templateUrl: './administrador.component.html',
   styleUrl: './administrador.component.scss',
 })

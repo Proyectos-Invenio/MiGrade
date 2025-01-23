@@ -9,11 +9,12 @@ import { TableModule, Table } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { EstudianteService } from '../../../services/estudiante.service';
 import { IEstudiante } from '../../../interfaces/usuarios';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @Component({
   selector: 'app-estudiante',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule],
+  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule, LazyLoadImageModule],
   templateUrl: './estudiante.component.html',
   styleUrl: './estudiante.component.scss'
 })
@@ -48,7 +49,4 @@ export class EstudianteComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dt?.filterGlobal(filterValue, 'contains');
   }
-
-
-
 }

@@ -15,9 +15,9 @@
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item dropdown">
-            <a class="dropdown-toggle btn btn-light border-0" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person text-migrade"></i></a>
+            <a class="dropdown-toggle btn btn-light border-0" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="pi pi-user text-migrade"></i></a>
             <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Perfil</a></li>
+                <li><a class="dropdown-item" [routerLink]="['auth/profile']">Perfil</a></li>
                 <li><span class="dropdown-item cursor-pointer" (click)="logout()">Cerrar Sesión</span></li>
             </ul>
         </li>

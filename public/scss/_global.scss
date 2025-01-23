@@ -32,3 +32,13 @@ input, button, select, optgroup, textarea {
 h5{
   font-weight: bold;
 }
+
+.pi-pencil:hover {
+  color: #fbc02d;
+  transition: color 0.1s ease;
+}
+
+.pi-trash:hover {
+  color: #d3302f;
+  transition: color 0.1s ease;
+}

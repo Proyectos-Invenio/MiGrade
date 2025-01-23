@@ -7,13 +7,15 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule, Table } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { PadreService } from '../../../services/padre.service';
 import { IPadre } from '../../../interfaces/usuarios';
+
 
 @Component({
   selector: 'app-padre',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule],
+  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule, LazyLoadImageModule],
   templateUrl: './padre.component.html',
   styleUrl: './padre.component.scss'
 })

@@ -3,8 +3,13 @@
     <div class="col-md-12 d-flex justify-content-between align-items-center">
       <h5 class="text-migrade">Estudiantes</h5>
       <div class="d-flex gap-2">
-        <button pButton type="button" label="Agregar Administrador" class="btn btn-sm btn-migrade">
-          <i class="bi bi-plus-lg"></i>
+        <button
+          pButton
+          type="button"
+          label="Agregar Administrador"
+          class="btn btn-sm btn-migrade"
+        >
+          <i class="pi pi-plus" style="font-size: 0.7rem"></i>
           Crear Estudiante
         </button>
       </div>
@@ -21,7 +26,13 @@
           [rowsPerPageOptions]="[10, 15, 30, 50, 100, 150, 200]"
           [loading]="loading"
           [paginator]="true"
-          [globalFilterFields]="['identification', 'nombre', 'rol','sexo', 'email']"
+          [globalFilterFields]="[
+            'identification',
+            'nombre',
+            'rol',
+            'sexo',
+            'email'
+          ]"
           class="custom-table"
           dataKey="identification"
         >
@@ -56,7 +67,8 @@
                 Padre <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
               </th>
               <th pSortableColumn="telefono">
-                Teléfono Padre <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
+                Tel. Padre
+                <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
               </th>
               <th pSortableColumn="email">
                 Email <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
@@ -73,22 +85,36 @@
                 {{ item.sexo }}
                 <span
                   *ngIf="item.sexo === 'Masculino'"
-                  style="display: inline-block; width: 10px; height: 10px; background-color: #2e72b8; border-radius: 50%; margin-left: 5px;"
+                  style="
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    background-color: #2e72b8;
+                    border-radius: 50%;
+                    margin-left: 5px;
+                  "
                 ></span>
                 <span
                   *ngIf="item.sexo === 'Femenino'"
-                  style="display: inline-block; width: 10px; height: 10px; background-color: pink; border-radius: 50%; margin-left: 5px;"
+                  style="
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    background-color: pink;
+                    border-radius: 50%;
+                    margin-left: 5px;
+                  "
                 ></span>
               </td>
               <td>{{ item.padre }}</td>
               <td>{{ item.informacion_contacto }}</td>
               <td>{{ item.email }}</td>
               <td>
-                <a class="btn btn-sm btn-light border-0 rounded-circle">
-                  <i class="bi bi-pencil"></i>
+                <a class="btn btn-sm border-0 rounded-circle">
+                  <i class="pi pi-pencil"></i>
                 </a>
-                <a class="btn btn-sm btn-light border-0 rounded-circle">
-                  <i class="bi bi-trash"></i>
+                <a class="btn btn-sm border-0 rounded-circle">
+                  <i class="pi pi-trash"></i>
                 </a>
               </td>
             </tr>

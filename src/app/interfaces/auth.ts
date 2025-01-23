@@ -13,11 +13,6 @@ export interface IUsuarioMenu {
 }
 
 export interface IUsuarios {
-  id: number;
-  nombre: string;
-  usuario: string;
-  correo: string;
-  id_pais: number;
-  pais: string;
-  codigo: string;
+  identification: number;
+  password: string;
 }

@@ -33,4 +33,13 @@ export class SeccionService {
       headers,
     });
   }
+
+  updateSeccion(id: any, datos: any): Observable<any> {
+    const token = localStorage.getItem('auth_token');
+    const headers = this.headers.set('Authorization', `Bearer ${token}`);
+    let params = JSON.stringify(datos);
+    return this._http.put<any>(`${this.baseUrl}seccion/update/${id}`, params, {
+      headers,
+    });
+  }
 }

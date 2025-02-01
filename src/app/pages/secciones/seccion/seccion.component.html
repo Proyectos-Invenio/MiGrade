@@ -84,7 +84,7 @@
               <td>{{ item.informacion_contacto }}</td>
               <td>{{ item.email }}</td>
               <td>
-                <a class="btn btn-sm border-0 rounded-circle">
+                <a class="btn btn-sm border-0 rounded-circle" [routerLink]="['editar-seccion', item.seccion]">
                   <i class="pi pi-pencil"></i>
                 </a>
                 <a class="btn btn-sm border-0 rounded-circle">

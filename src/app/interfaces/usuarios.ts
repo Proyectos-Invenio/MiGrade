@@ -30,7 +30,7 @@ export interface IProfesor {
     informacion_contacto: number;
 }
 
-export interface IPadre {
+export interface IEncargado {
     identification: number;
     nombre: string;
     informacion_contacto: number;

@@ -7,20 +7,25 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { ResetPasswordComponent } from './pages/auth/reset-password/reset-password.component';
 import { ProfileComponent } from './pages/auth/profile/profile.component';
 import { RolComponent } from './pages/roles/rol/rol.component';
-import { SoporteTecnicoComponent } from './pages/soporte-tecnico/soporte-tecnico.component';
 
 // ! Administrador
 import { AdministradorComponent } from './pages/administradores/administrador/administrador.component';
 // ! Profesor
 import { ProfeComponent } from './pages/profesores/profe/profe.component';
-// ! Padre
-import { PadreComponent } from './pages/padres/padre/padre.component';
+// ! Encargado
+import { EncargadoComponent } from './pages/encargados/encargado/encargado.component';
 // ! Estudiante
 import { EstudianteComponent } from './pages/estudiantes/estudiante/estudiante.component';
 // ! Menu
 import { VisibilidadMenuComponent } from './pages/visibilidad_menus/visibilidad-menu/visibilidad-menu.component';
 // ! Academico
 import { AsignaturaComponent } from './pages/asignaturas/asignatura/asignatura.component';
+
+
+// ! Secciones
+import { SeccionComponent } from './pages/secciones/seccion/seccion.component';
+import { CrearSeccionComponent } from './pages/secciones/crear-seccion/crear-seccion.component';
+import { EditarSeccionComponent } from './pages/secciones/editar-seccion/editar-seccion.component';
 
 export const routes: Routes = [
   {
@@ -62,8 +67,8 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'padres/padre',
-    component: PadreComponent,
+    path: 'encargados/encargado',
+    component: EncargadoComponent,
     canActivate: [AuthGuard],
   },
   {
@@ -87,8 +92,18 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'soporte-tecnico',
-    component: SoporteTecnicoComponent,
+    path: 'secciones/seccion',
+    component: SeccionComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'secciones/seccion/crear-seccion',
+    component: CrearSeccionComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'secciones/seccion/editar-seccion/:id',
+    component: EditarSeccionComponent,
     canActivate: [AuthGuard],
   },
 ];

@@ -6,27 +6,30 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import Swal from 'sweetalert2';
 import { SeccionService } from '../../../services/secciones.service';
 import { ProfesorService } from '../../../services/profesor.service';
-import { IProfesor } from '../../../interfaces/usuarios';
+
 
 @Component({
   selector: 'app-crear-seccion',
   standalone: true,
-  imports: [ CommonModule, FormsModule, ReactiveFormsModule, RouterModule, NgSelectModule ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    NgSelectModule,
+  ],
   templateUrl: './crear-seccion.component.html',
   styleUrl: './crear-seccion.component.scss',
 })
 export class CrearSeccionComponent implements OnInit {
   public seccionForm: FormGroup;
   public profesores: any[] = [];
-  public selectedProfesor: any;
 
   constructor(
     private fb: FormBuilder,
     private _seccionService: SeccionService,
     private _profesorService: ProfesorService,
-    private _router: Router,
-    private route: ActivatedRoute
-  ) {
+    private _router: Router  ) {
     this.seccionForm = this.fb.group({
       seccion: ['', Validators.required],
       profesor: ['', Validators.required],
@@ -39,18 +42,12 @@ export class CrearSeccionComponent implements OnInit {
 
   private loadProfesores(): void {
     this._profesorService.getProfesor(0).subscribe({
-      next: (data: IProfesor[]) => {
+      next: (data) => {
         this.profesores = data;
-        if (this.selectedProfesor) {
-          const profesor = this.profesores.find((f) => f.profesor === this.selectedProfesor);
-          if (profesor) {
-            this.seccionForm.patchValue({ profesor: profesor.id });
-          }
-        }
       },
       error: (error) => {
         console.error('Error al cargar profesores', error);
-      }
+      },
     });
   }
 

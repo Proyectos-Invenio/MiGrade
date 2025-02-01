@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="card mt-3">
+    <div class="card-body">
+      <h4 class="text-migrade">Crear Sección</h4>
+      <form [formGroup]="seccionForm" (submit)="submitForm()">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="seccion">Sección</label>
+              <input id="seccion" formControlName="seccion" class="form-control" placeholder="#-#"/>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="profesor">Profesor Guía</label>
+              <ng-select
+                [items]="profesores"
+                bindLabel="nombre"
+                bindValue="identification"
+                formControlName="profesor"
+                id="profesor"
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+          <button type="submit" class="btn btn-sm btn-migrade mt-3">
+            <i class="pi pi-plus" style="font-size: 0.7rem"></i> Crear Sección
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

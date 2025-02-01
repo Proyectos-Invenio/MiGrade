@@ -6,23 +6,31 @@ import { environment } from '../environments/environments';
 import { ISeccion } from '../interfaces/academico';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class SeccionService {
-    private baseUrl = environment.baseUrl;
-    public identity: any;
-    public headers = new HttpHeaders({
-        'Content-Type': 'application/json',
+  private baseUrl = environment.baseUrl;
+  public identity: any;
+  public headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+  });
+
+  constructor(private _http: HttpClient, private _router: Router) {}
+
+  getSeccion(id: any): Observable<any> {
+    const token = localStorage.getItem('auth_token');
+    const headers = this.headers.set('Authorization', `Bearer ${token}`);
+    return this._http.get<ISeccion>(`${this.baseUrl}seccion/${id}`, {
+      headers,
     });
+  }
 
-    constructor(private _http: HttpClient, private _router: Router) {}
-
-    getSeccion(id: any): Observable<any> {
-        const token = localStorage.getItem('auth_token');
-        const headers = this.headers.set('Authorization', `Bearer ${token}`);
-        return this._http.get<ISeccion>(
-            `${this.baseUrl}seccion/${id}`,
-            { headers }
-        );
-    }
+  crearSeccion(datos: any): Observable<any> {
+    const token = localStorage.getItem('auth_token');
+    const headers = this.headers.set('Authorization', `Bearer ${token}`);
+    let params = JSON.stringify(datos);
+    return this._http.post<any>(`${this.baseUrl}seccion/create`, params, {
+      headers,
+    });
+  }
 }

@@ -3,12 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../environments/environments';
-import { IPadre } from '../interfaces/usuarios';
+import { IEncargado } from '../interfaces/usuarios';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PadreService {
+export class EncargadoService {
   private baseUrl = environment.baseUrl;
   public identity: any;
   public headers = new HttpHeaders({
@@ -17,11 +17,11 @@ export class PadreService {
 
   constructor(private _http: HttpClient, private _router: Router) {}
 
-  getPadre(identification: any): Observable<any> {
+  getEncargado(identification: any): Observable<any> {
     const token = localStorage.getItem('auth_token');
     const headers = this.headers.set('Authorization', `Bearer ${token}`);
-    return this._http.get<IPadre>(
-      `${this.baseUrl}padre/${identification}`,
+    return this._http.get<IEncargado>(
+      `${this.baseUrl}encargado/${identification}`,
       { headers }
     );
   }

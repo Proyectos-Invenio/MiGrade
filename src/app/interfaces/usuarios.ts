@@ -1,12 +1,13 @@
 export interface IEstudiante {
   identification: number;
   nombre: string;
-  encargado: number;
+  encargado: string;
+  encargado_id: number;
   informacion_contacto: number;
   rol: number;
   email: string;
   password: string;
-  seccion: number;
+  seccion: string;
   sexo: string;
 }
 

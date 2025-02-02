@@ -2,28 +2,30 @@
   <div class="card mt-3">
     <div class="card-body">
       <h4 class="text-migrade">Crear Sección</h4>
-      <form [formGroup]="seccionForm" (submit)="submitForm()">
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="seccion">Sección</label>
-              <input id="seccion" formControlName="seccion" class="form-control" placeholder="#-#"/>
-            </div>
+      <form [formGroup]="seccionForm" (submit)="submitForm()" class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+          <label for="seccion" class="form-label">Sección</label>
+          <input id="seccion" formControlName="seccion" class="form-control" required [ngClass]="{'is-invalid': seccionForm.controls['seccion'].invalid && seccionForm.controls['seccion'].touched}"/>
+          <div class="invalid-feedback">
+            Por favor, ingrese una sección válida.
           </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="profesor">Profesor Guía</label>
-              <ng-select
-                [items]="profesores"
-                bindLabel="nombre"
-                bindValue="identification"
-                formControlName="profesor"
-                id="profesor"
-                placeholder="Seleccione un profesor"
-                notFoundText="No se encontraron profesores"
-              >
-              </ng-select>
-            </div>
+        </div>
+        <div class="col-md-6">
+          <label for="profesor" class="form-label">Profesor Guía</label>
+          <ng-select
+            [items]="profesores"
+            bindLabel="nombre"
+            bindValue="identification"
+            formControlName="profesor"
+            id="profesor"
+            placeholder="Seleccione un profesor"
+            notFoundText="No se encontraron profesores"
+            required
+            [ngClass]="{'is-invalid': seccionForm.controls['profesor'].invalid && seccionForm.controls['profesor'].touched}"
+          >
+          </ng-select>
+          <div class="invalid-feedback">
+            Por favor, seleccione un profesor.
           </div>
         </div>
         <div class="d-flex justify-content-end mt-3">

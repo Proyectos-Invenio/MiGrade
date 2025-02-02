@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, ActivatedRoute, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import Swal from 'sweetalert2';
 import { SeccionService } from '../../../services/secciones.service';
 import { ProfesorService } from '../../../services/profesor.service';
+import Inputmask from 'inputmask';
 
 
 @Component({
@@ -31,13 +32,14 @@ export class CrearSeccionComponent implements OnInit {
     private _profesorService: ProfesorService,
     private _router: Router  ) {
     this.seccionForm = this.fb.group({
-      seccion: ['', Validators.required],
+      seccion: ['', [Validators.required, Validators.pattern(/^\d-\d$/)]],
       profesor: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
     this.loadProfesores();
+    this.applyInputMask();
   }
 
   private loadProfesores(): void {
@@ -50,6 +52,11 @@ export class CrearSeccionComponent implements OnInit {
       },
     });
   }
+
+  private applyInputMask(): void {
+      const seccionInput = document.getElementById('seccion') as HTMLInputElement;
+      Inputmask({ mask: '9-9' }).mask(seccionInput);
+    }
 
   // Envía el formulario.
   submitForm(): void {

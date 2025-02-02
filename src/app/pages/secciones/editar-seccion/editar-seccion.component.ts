@@ -41,7 +41,6 @@ export class EditarSeccionComponent implements OnInit {
   private loadProfesores(): void {
     this._profesorService.getProfesor(0).subscribe({
       next: (data) => {
-        console.log('Profesores cargados:', data); // Verificar datos de profesores
         this.profesores = data;
       },
       error: (error) => {
@@ -53,7 +52,6 @@ export class EditarSeccionComponent implements OnInit {
   private loadSeccion(): void {
     this._seccionService.getSeccion(this.seccionId).subscribe({
       next: (data) => {
-        console.log('Datos de la sección:', data);
         if (data && data.length > 0) {
           const seccionData = data[0];
           this.seccionForm.patchValue({

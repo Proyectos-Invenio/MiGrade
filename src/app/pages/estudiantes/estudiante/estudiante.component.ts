@@ -14,17 +14,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 @Component({
   selector: 'app-estudiante',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    TableModule,
-    InputTextModule,
-    IconFieldModule,
-    InputIconModule,
-    TagModule,
-    LazyLoadImageModule,
-  ],
+  imports: [ CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule, LazyLoadImageModule,],
   templateUrl: './estudiante.component.html',
   styleUrl: './estudiante.component.scss',
 })
@@ -47,8 +37,10 @@ export class EstudianteComponent implements OnInit {
   getEstudiante(): void {
     this.estudianteService.getEstudiante(0).subscribe({
       next: (data) => {
+        // Mapear los datos de los estudiantes y formatear la información de contacto e identificación
         this.estudiantes = data.map((estudiante: IEstudiante) => ({
           ...estudiante,
+          rawIdentification: estudiante.identification,
           informacion_contacto: estudiante.informacion_contacto
             ? this.formatContactInfo(String(estudiante.informacion_contacto))
             : '',
@@ -65,6 +57,7 @@ export class EstudianteComponent implements OnInit {
     });
   }
 
+  // Formatear la información de contacto
   formatContactInfo(contactInfo: string): string {
     if (!contactInfo) {
       return '';
@@ -72,6 +65,7 @@ export class EstudianteComponent implements OnInit {
     return `+506 ${contactInfo.slice(0, 4)}-${contactInfo.slice(4)}`;
   }
 
+  // Formatear la identificación
   formatIdentification(identification: string): string {
     return `${identification.charAt(0)}-${identification.slice(1, 5)}-${identification.slice(5)}`;
   }

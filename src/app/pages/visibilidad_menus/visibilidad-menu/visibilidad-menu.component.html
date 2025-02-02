@@ -8,6 +8,7 @@
           type="button"
           label="Agregar Administrador"
           class="btn btn-sm btn-migrade"
+          [routerLink]="['/visibilidad_menus/crear-visibilidad-menu']"
         >
           <i class="pi pi-plus" style="font-size: 0.7rem"></i>
           Crear Visibilidad
@@ -117,7 +118,7 @@
                 ></span>
               </td>
               <td>
-                <a class="btn btn-sm border-0 rounded-circle">
+                <a class="btn btn-sm border-0 rounded-circle" [routerLink]="['/visibilidad_menus/editar-visibilidad-menu', item.id]">
                   <i class="pi pi-pencil"></i>
                 </a>
                 <a class="btn btn-sm border-0 rounded-circle">

@@ -8,6 +8,7 @@
           type="button"
           label="Agregar Administrador"
           class="btn btn-sm btn-migrade"
+          [routerLink]="['/encargados/crear-encargado']"
         >
           <i class="pi pi-plus" style="font-size: 0.7rem"></i>
           Crear Padre
@@ -81,7 +82,7 @@
               <td>{{ item.informacion_contacto }}</td>
               <td>{{ item.email }}</td>
               <td>
-                <a class="btn btn-sm border-0 rounded-circle">
+                <a class="btn btn-sm border-0 rounded-circle" [routerLink]="['/encargados/editar-encargado', item.identification]">
                   <i class="pi pi-pencil"></i>
                 </a>
                 <a class="btn btn-sm border-0 rounded-circle">

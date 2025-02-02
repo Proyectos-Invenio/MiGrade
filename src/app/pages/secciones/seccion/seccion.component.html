@@ -8,7 +8,7 @@
           type="button"
           label="Agregar Administrador"
           class="btn btn-sm btn-migrade"
-          [routerLink]="['crear-seccion']"
+          [routerLink]="['/secciones/crear-seccion']"
         >
           <i class="pi pi-plus" style="font-size: 0.7rem"></i>
           Crear sección
@@ -84,7 +84,7 @@
               <td>{{ item.informacion_contacto }}</td>
               <td>{{ item.email }}</td>
               <td>
-                <a class="btn btn-sm border-0 rounded-circle" [routerLink]="['editar-seccion', item.seccion]">
+                <a class="btn btn-sm border-0 rounded-circle" [routerLink]="['/secciones/editar-seccion', item.seccion]">
                   <i class="pi pi-pencil"></i>
                 </a>
                 <a class="btn btn-sm border-0 rounded-circle">

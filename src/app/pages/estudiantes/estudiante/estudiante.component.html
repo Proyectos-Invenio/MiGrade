@@ -8,6 +8,7 @@
           type="button"
           label="Agregar Administrador"
           class="btn btn-sm btn-migrade"
+          [routerLink]="['/estudiantes/crear-estudiante']"
         >
           <i class="pi pi-plus" style="font-size: 0.7rem"></i>
           Crear Estudiante
@@ -31,7 +32,7 @@
             'nombre',
             'rol',
             'sexo',
-            'email'
+            'seccion'
           ]"
           class="custom-table"
           dataKey="identification"
@@ -71,8 +72,8 @@
                 Tel. Encargado
                 <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
               </th>
-              <th pSortableColumn="email">
-                Email <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
+              <th pSortableColumn="seccion">
+                Sección <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
               </th>
               <th>Opciones</th>
             </tr>
@@ -117,9 +118,9 @@
               </td>
               <td>{{ item.encargado }}</td>
               <td>{{ item.informacion_contacto }}</td>
-              <td>{{ item.email }}</td>
+              <td>{{ item.seccion }}</td>
               <td>
-                <a class="btn btn-sm border-0 rounded-circle">
+                <a class="btn btn-sm border-0 rounded-circle" [routerLink]="['/estudiantes/editar-estudiante', item.identification]">
                   <i class="pi pi-pencil"></i>
                 </a>
                 <a class="btn btn-sm border-0 rounded-circle">

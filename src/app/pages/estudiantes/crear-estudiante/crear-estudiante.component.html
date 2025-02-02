@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <div class="card mt-3">
+    <div class="card-body">
+      <h4 class="text-migrade">Crear Estudiante</h4>
+      <form [formGroup]="estudianteForm" (submit)="submitForm()">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="identification">Cédula</label>
+              <input id="identification" formControlName="identification" class="form-control"/>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" formControlName="nombre" class="form-control"/>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="encargado">Encargado</label>
+              <ng-select
+                [items]="encargados"
+                bindLabel="nombre"
+                bindValue="identification"
+                formControlName="encargado"
+                id="encargado"
+                placeholder="Seleccione un encargado"
+                notFoundText="No se encontraron encargados"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" formControlName="email" class="form-control" placeholder="ejemplo@gmail.com" type="email"/>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <div class="input-group mb-3">
+                <input id="password" formControlName="password" class="form-control" type="password"/>
+                <span class="input-group-text togglePassword">
+                  <i class="pi pi-eye" style="cursor: pointer"></i>
+                </span>
+              </div>
+              <span *ngIf="getPasswordErrors()" class="text-danger">
+                <small>{{ getPasswordErrors() }}</small>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="sexo">Sexo</label>
+              <select id="sexo" formControlName="sexo" class="form-control">
+                <option value="" disabled selected>Seleccione el sexo</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="seccion">Sección</label>
+              <ng-select
+                [items]="secciones"
+                bindLabel="seccion"
+                bindValue="seccion"
+                formControlName="seccion"
+                id="seccion"
+                placeholder="Seleccione una sección"
+                notFoundText="No se encontraron secciones"
+                required
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+          <button type="submit" class="btn btn-sm btn-migrade mt-3">
+            <i class="pi pi-plus" style="font-size: 0.7rem"></i> Crear Estudiante
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

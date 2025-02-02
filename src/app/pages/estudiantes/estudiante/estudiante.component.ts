@@ -14,9 +14,19 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 @Component({
   selector: 'app-estudiante',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule, LazyLoadImageModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    TableModule,
+    InputTextModule,
+    IconFieldModule,
+    InputIconModule,
+    TagModule,
+    LazyLoadImageModule,
+  ],
   templateUrl: './estudiante.component.html',
-  styleUrl: './estudiante.component.scss'
+  styleUrl: './estudiante.component.scss',
 })
 export class EstudianteComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
@@ -24,17 +34,28 @@ export class EstudianteComponent implements OnInit {
   public loading: boolean = true;
   public selectedEstudiantes: IEstudiante[] = [];
 
-  constructor(private estudianteService: EstudianteService, private _cdr: ChangeDetectorRef) {}
+  constructor(
+    private estudianteService: EstudianteService,
+    private _cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.getEstudiante();
   }
 
-  // Obtener administradores
+  // Obtener estudiantes
   getEstudiante(): void {
     this.estudianteService.getEstudiante(0).subscribe({
       next: (data) => {
-        this.estudiantes = data;
+        this.estudiantes = data.map((estudiante: IEstudiante) => ({
+          ...estudiante,
+          informacion_contacto: estudiante.informacion_contacto
+            ? this.formatContactInfo(String(estudiante.informacion_contacto))
+            : '',
+          identification: estudiante.identification
+            ? this.formatIdentification(String(estudiante.identification))
+            : '',
+        }));
         this.loading = false;
         this._cdr.detectChanges();
       },
@@ -42,6 +63,17 @@ export class EstudianteComponent implements OnInit {
         console.error('Error al cargar los administradores:', error);
       },
     });
+  }
+
+  formatContactInfo(contactInfo: string): string {
+    if (!contactInfo) {
+      return '';
+    }
+    return `+506 ${contactInfo.slice(0, 4)}-${contactInfo.slice(4)}`;
+  }
+
+  formatIdentification(identification: string): string {
+    return `${identification.charAt(0)}-${identification.slice(1, 5)}-${identification.slice(5)}`;
   }
 
   // Aplicar filtro global

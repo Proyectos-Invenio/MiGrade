@@ -14,9 +14,19 @@ import { IProfesor } from '../../../interfaces/usuarios';
 @Component({
   selector: 'app-profe',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule, LazyLoadImageModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    TableModule,
+    InputTextModule,
+    IconFieldModule,
+    InputIconModule,
+    TagModule,
+    LazyLoadImageModule,
+  ],
   templateUrl: './profe.component.html',
-  styleUrl: './profe.component.scss'
+  styleUrl: './profe.component.scss',
 })
 export class ProfeComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
@@ -24,7 +34,10 @@ export class ProfeComponent implements OnInit {
   public loading: boolean = true;
   public selectedProfesores: IProfesor[] = [];
 
-  constructor(private profesorService: ProfesorService, private _cdr: ChangeDetectorRef) {}
+  constructor(
+    private profesorService: ProfesorService,
+    private _cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.getProfesor();
@@ -34,7 +47,15 @@ export class ProfeComponent implements OnInit {
   getProfesor(): void {
     this.profesorService.getProfesor(0).subscribe({
       next: (data) => {
-        this.profesores = data;
+        this.profesores = data.map((profesor: IProfesor) => ({
+          ...profesor,
+          informacion_contacto: profesor.informacion_contacto
+            ? this.formatContactInfo(String(profesor.informacion_contacto))
+            : '',
+          identification: profesor.identification
+            ? this.formatIdentification(String(profesor.identification))
+            : '',
+        }));
         this.loading = false;
         this._cdr.detectChanges();
       },
@@ -42,6 +63,20 @@ export class ProfeComponent implements OnInit {
         console.error('Error al cargar los administradores:', error);
       },
     });
+  }
+
+  formatContactInfo(contactInfo: string): string {
+    if (!contactInfo) {
+      return '';
+    }
+    return `+506 ${contactInfo.slice(0, 4)}-${contactInfo.slice(4)}`;
+  }
+
+  formatIdentification(identification: string): string {
+    return `${identification.charAt(0)}-${identification.slice(
+      1,
+      5
+    )}-${identification.slice(5)}`;
   }
 
   // Aplicar filtro global

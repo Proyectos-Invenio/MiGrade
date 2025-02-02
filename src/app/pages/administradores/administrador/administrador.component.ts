@@ -34,7 +34,10 @@ export class AdministradorComponent implements OnInit {
   getAdministradores(): void {
     this.administradoresService.getAdministradores(0).subscribe({
       next: (data) => {
-        this.administradores = data;
+        this.administradores = data.map((administrador: IAdministrador) => ({
+          ...administrador,
+          identification: administrador.identification ? this.formatIdentification(String(administrador.identification)) : '',
+        }));
         this.loading = false;
         this._cdr.detectChanges();
       },
@@ -42,6 +45,10 @@ export class AdministradorComponent implements OnInit {
         console.error('Error al cargar los administradores:', error);
       }
     });
+  }
+
+  formatIdentification(identification: string): string {
+    return `${identification.charAt(0)}-${identification.slice(1, 5)}-${identification.slice(5)}`;
   }
 
   // Aplicar filtro global

@@ -15,9 +15,19 @@ import { IEncargado } from '../../../interfaces/usuarios';
 @Component({
   selector: 'app-encargado',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule, LazyLoadImageModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    TableModule,
+    InputTextModule,
+    IconFieldModule,
+    InputIconModule,
+    TagModule,
+    LazyLoadImageModule,
+  ],
   templateUrl: './encargado.component.html',
-  styleUrl: './encargado.component.scss'
+  styleUrl: './encargado.component.scss',
 })
 export class EncargadoComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
@@ -25,7 +35,10 @@ export class EncargadoComponent implements OnInit {
   public loading: boolean = true;
   public selectedEncargados: IEncargado[] = [];
 
-  constructor(private encargadoService: EncargadoService, private _cdr: ChangeDetectorRef) {}
+  constructor(
+    private encargadoService: EncargadoService,
+    private _cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.getEncargados();
@@ -35,7 +48,15 @@ export class EncargadoComponent implements OnInit {
   getEncargados(): void {
     this.encargadoService.getEncargado(0).subscribe({
       next: (data) => {
-        this.encargados = data;
+        this.encargados = data.map((encargado: IEncargado) => ({
+          ...encargado,
+          informacion_contacto: encargado.informacion_contacto
+            ? this.formatContactInfo(String(encargado.informacion_contacto))
+            : '',
+          identification: encargado.identification
+            ? this.formatIdentification(String(encargado.identification))
+            : '',
+        }));
         this.loading = false;
         this._cdr.detectChanges();
       },
@@ -45,12 +66,23 @@ export class EncargadoComponent implements OnInit {
     });
   }
 
+  formatContactInfo(contactInfo: string): string {
+    if (!contactInfo) {
+      return '';
+    }
+    return `+506 ${contactInfo.slice(0, 4)}-${contactInfo.slice(4)}`;
+  }
+
+  formatIdentification(identification: string): string {
+    return `${identification.charAt(0)}-${identification.slice(
+      1,
+      5
+    )}-${identification.slice(5)}`;
+  }
+
   // Aplicar filtro global
   applyFilterGlobal(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dt?.filterGlobal(filterValue, 'contains');
   }
-
-
-
 }

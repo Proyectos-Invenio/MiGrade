@@ -7,7 +7,7 @@ export interface IEstudiante {
   rol: number;
   email: string;
   password: string;
-  seccion: string;
+  seccion_id: string;
   sexo: string;
 }
 

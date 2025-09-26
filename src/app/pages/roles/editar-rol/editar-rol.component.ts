@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './editar-rol.component.html',
-  styleUrl: './editar-rol.component.scss'
+  styleUrl: './editar-rol.component.scss',
 })
-export class EditarRolComponent {
-
-}
+export class EditarRolComponent {}

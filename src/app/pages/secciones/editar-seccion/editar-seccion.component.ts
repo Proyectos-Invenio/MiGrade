@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SeccionService } from '../../../services/secciones.service';
@@ -12,7 +18,7 @@ import Swal from 'sweetalert2';
   standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, NgSelectModule],
   templateUrl: './editar-seccion.component.html',
-  styleUrl: './editar-seccion.component.scss'
+  styleUrl: './editar-seccion.component.scss',
 })
 export class EditarSeccionComponent implements OnInit {
   public seccionForm: FormGroup;
@@ -24,7 +30,7 @@ export class EditarSeccionComponent implements OnInit {
     private _seccionService: SeccionService,
     private _profesorService: ProfesorService,
     private _router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
     this.seccionForm = this.fb.group({
       seccion: ['', Validators.required],
@@ -45,7 +51,7 @@ export class EditarSeccionComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error al cargar profesores', error);
-      }
+      },
     });
   }
 
@@ -56,14 +62,14 @@ export class EditarSeccionComponent implements OnInit {
           const seccionData = data[0];
           this.seccionForm.patchValue({
             seccion: seccionData.seccion,
-            profesor: seccionData.identification
+            profesor: seccionData.identification,
           });
           console.log('Formulario actualizado:', this.seccionForm.value);
         }
       },
       error: (error) => {
         console.error('Error al cargar la sección', error);
-      }
+      },
     });
   }
 

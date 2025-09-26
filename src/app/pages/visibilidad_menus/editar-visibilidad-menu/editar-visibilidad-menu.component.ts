@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './editar-visibilidad-menu.component.html',
-  styleUrl: './editar-visibilidad-menu.component.scss'
+  styleUrl: './editar-visibilidad-menu.component.scss',
 })
-export class EditarVisibilidadMenuComponent {
-
-}
+export class EditarVisibilidadMenuComponent {}

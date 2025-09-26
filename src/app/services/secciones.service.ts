@@ -15,7 +15,10 @@ export class SeccionService {
     'Content-Type': 'application/json',
   });
 
-  constructor(private _http: HttpClient, private _router: Router) {}
+  constructor(
+    private _http: HttpClient,
+    private _router: Router,
+  ) {}
 
   getSeccion(id: any): Observable<any> {
     const token = localStorage.getItem('auth_token');

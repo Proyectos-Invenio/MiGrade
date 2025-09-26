@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators, AbstractControl } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import Swal from 'sweetalert2';
@@ -14,13 +21,7 @@ import { IEncargado } from '../../../interfaces/usuarios';
 @Component({
   selector: 'app-crear-estudiante',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule,
-    NgSelectModule,
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, NgSelectModule],
   templateUrl: './crear-estudiante.component.html',
   styleUrl: './crear-estudiante.component.scss',
 })
@@ -35,7 +36,7 @@ export class CrearEstudianteComponent implements OnInit {
     private _estudianteService: EstudianteService,
     private _seccionService: SeccionService,
     private _encargadoService: EncargadoService,
-    private _router: Router
+    private _router: Router,
   ) {
     this.initializeForm(); // Inicializar el formulario
   }
@@ -85,28 +86,20 @@ export class CrearEstudianteComponent implements OnInit {
 
   // Aplicar máscara de entrada al campo de identificación
   private applyInputMask(): void {
-    const identificationInput = document.getElementById(
-      'identification'
-    ) as HTMLInputElement;
+    const identificationInput = document.getElementById('identification') as HTMLInputElement;
     Inputmask({ mask: '9-9999-9999' }).mask(identificationInput);
   }
 
   // Configurar el botón de alternar visibilidad de la contraseña
   private setupPasswordToggle(): void {
-    const togglePassword = document.querySelector(
-      '.togglePassword'
-    ) as HTMLElement;
-    togglePassword.addEventListener('click', () =>
-      this.togglePasswordVisibility()
-    );
+    const togglePassword = document.querySelector('.togglePassword') as HTMLElement;
+    togglePassword.addEventListener('click', () => this.togglePasswordVisibility());
   }
 
   // Alternar visibilidad de la contraseña
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
-    const passwordInput = document.getElementById(
-      'password'
-    ) as HTMLInputElement;
+    const passwordInput = document.getElementById('password') as HTMLInputElement;
     passwordInput.type = this.passwordVisible ? 'text' : 'password';
     const icon = document.querySelector('.togglePassword i') as HTMLElement;
     icon.classList.toggle('pi-eye');
@@ -128,9 +121,7 @@ export class CrearEstudianteComponent implements OnInit {
   }
 
   // Método personalizado para validar el campo identification
-  private identificationValidator(
-    control: AbstractControl
-  ): { [key: string]: any } | null {
+  private identificationValidator(control: AbstractControl): { [key: string]: any } | null {
     if (!control.value) {
       return { invalidIdentification: true }; // Retorna error si el valor es nulo o indefinido
     }
@@ -145,10 +136,7 @@ export class CrearEstudianteComponent implements OnInit {
     if (this.estudianteForm.valid) {
       const estudianteData = this.estudianteForm.value;
       // Limpiar el valor de identificación
-      estudianteData.identification = estudianteData.identification.replace(
-        /\D/g,
-        ''
-      );
+      estudianteData.identification = estudianteData.identification.replace(/\D/g, '');
       // Llamar al servicio para crear estudiante
       this._estudianteService.crearEstudiante(estudianteData).subscribe({
         next: (response) => this.onSuccess(response),

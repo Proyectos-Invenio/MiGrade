@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 import Swal from 'sweetalert2';
@@ -8,17 +14,10 @@ import { SeccionService } from '../../../services/secciones.service';
 import { ProfesorService } from '../../../services/profesor.service';
 import Inputmask from 'inputmask';
 
-
 @Component({
   selector: 'app-crear-seccion',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule,
-    NgSelectModule,
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, NgSelectModule],
   templateUrl: './crear-seccion.component.html',
   styleUrl: './crear-seccion.component.scss',
 })
@@ -30,7 +29,8 @@ export class CrearSeccionComponent implements OnInit {
     private fb: FormBuilder,
     private _seccionService: SeccionService,
     private _profesorService: ProfesorService,
-    private _router: Router  ) {
+    private _router: Router,
+  ) {
     this.seccionForm = this.fb.group({
       seccion: ['', [Validators.required, Validators.pattern(/^\d-\d$/)]],
       profesor: ['', Validators.required],
@@ -54,9 +54,9 @@ export class CrearSeccionComponent implements OnInit {
   }
 
   private applyInputMask(): void {
-      const seccionInput = document.getElementById('seccion') as HTMLInputElement;
-      Inputmask({ mask: '9-9' }).mask(seccionInput);
-    }
+    const seccionInput = document.getElementById('seccion') as HTMLInputElement;
+    Inputmask({ mask: '9-9' }).mask(seccionInput);
+  }
 
   // Envía el formulario.
   submitForm(): void {

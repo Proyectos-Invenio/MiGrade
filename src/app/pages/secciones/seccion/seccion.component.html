@@ -27,10 +27,7 @@
           [rowsPerPageOptions]="[10, 15, 30, 50, 100, 150, 200]"
           [loading]="loading"
           [paginator]="true"
-          [globalFilterFields]="[
-            'seccion',
-            'profesor'
-          ]"
+          [globalFilterFields]="['seccion', 'profesor']"
           class="custom-table"
           dataKey="seccion"
         >
@@ -84,7 +81,10 @@
               <td>{{ item.informacion_contacto }}</td>
               <td>{{ item.email }}</td>
               <td>
-                <a class="btn btn-sm border-0 rounded-circle" [routerLink]="['/secciones/editar-seccion', item.seccion]">
+                <a
+                  class="btn btn-sm border-0 rounded-circle"
+                  [routerLink]="['/secciones/editar-seccion', item.seccion]"
+                >
                   <i class="pi pi-pencil"></i>
                 </a>
                 <a class="btn btn-sm border-0 rounded-circle">

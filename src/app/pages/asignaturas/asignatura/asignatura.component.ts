@@ -13,9 +13,18 @@ import { IAsignaturas } from '../../../interfaces/academico';
 @Component({
   selector: 'app-asignatura',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    TableModule,
+    InputTextModule,
+    IconFieldModule,
+    InputIconModule,
+    TagModule,
+  ],
   templateUrl: './asignatura.component.html',
-  styleUrl: './asignatura.component.scss'
+  styleUrl: './asignatura.component.scss',
 })
 export class AsignaturaComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
@@ -23,7 +32,10 @@ export class AsignaturaComponent implements OnInit {
   public loading: boolean = true;
   public selectedAsignaturas: IAsignaturas[] = [];
 
-  constructor(private asignaturasService: AsignaturasService, private _cdr: ChangeDetectorRef) {}
+  constructor(
+    private asignaturasService: AsignaturasService,
+    private _cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.getAsignaturas();

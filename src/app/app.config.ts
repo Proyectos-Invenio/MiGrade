@@ -1,13 +1,6 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import {
-  provideRouter,
-  withComponentInputBinding,
-  withHashLocation,
-} from '@angular/router';
-import {
-  provideHttpClient,
-  withInterceptorsFromDi,
-} from '@angular/common/http';
+import { provideRouter, withComponentInputBinding, withHashLocation } from '@angular/router';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';

@@ -12,28 +12,28 @@ export interface IEstudiante {
 }
 
 export interface IAdministrador {
-    identification: number;
-    nombre: string;
-    rol: number;
-    email: string;
-    password: string;
+  identification: number;
+  nombre: string;
+  rol: number;
+  email: string;
+  password: string;
 }
 
 export interface IProfesor {
-    identification: number;
-    nombre: string;
-    asignatura_id: number;
-    rol: number;
-    email: string;
-    password: string;
-    informacion_contacto: number;
+  identification: number;
+  nombre: string;
+  asignatura_id: number;
+  rol: number;
+  email: string;
+  password: string;
+  informacion_contacto: number;
 }
 
 export interface IEncargado {
-    identification: number;
-    nombre: string;
-    informacion_contacto: number;
-    rol: number;
-    email: string;
-    password: string;
+  identification: number;
+  nombre: string;
+  informacion_contacto: number;
+  rol: number;
+  email: string;
+  password: string;
 }

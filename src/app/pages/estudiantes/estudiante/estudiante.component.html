@@ -27,13 +27,7 @@
           [rowsPerPageOptions]="[10, 15, 30, 50, 100, 150, 200]"
           [loading]="loading"
           [paginator]="true"
-          [globalFilterFields]="[
-            'identification',
-            'nombre',
-            'rol',
-            'sexo',
-            'seccion'
-          ]"
+          [globalFilterFields]="['identification', 'nombre', 'rol', 'sexo', 'seccion']"
           class="custom-table"
           dataKey="identification"
         >
@@ -87,7 +81,12 @@
               <td>{{ item.identification }}</td>
               <td>
                 <div class="flex items-center gap-2">
-                  <img [alt]="item.nombre" [lazyLoad]="'https://robohash.org/' + item.email + '?set=set5&size=32x32'" width="32" style="vertical-align: middle" />
+                  <img
+                    [alt]="item.nombre"
+                    [lazyLoad]="'https://robohash.org/' + item.email + '?set=set5&size=32x32'"
+                    width="32"
+                    style="vertical-align: middle"
+                  />
                   <span>{{ item.nombre }}</span>
                 </div>
               </td>
@@ -120,7 +119,10 @@
               <td>{{ item.informacion_contacto }}</td>
               <td>{{ item.seccion }}</td>
               <td>
-                <a class="btn btn-sm border-0 rounded-circle" [routerLink]="['/estudiantes/editar-estudiante', item.rawIdentification]">
+                <a
+                  class="btn btn-sm border-0 rounded-circle"
+                  [routerLink]="['/estudiantes/editar-estudiante', item.rawIdentification]"
+                >
                   <i class="pi pi-pencil"></i>
                 </a>
                 <a class="btn btn-sm border-0 rounded-circle">

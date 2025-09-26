@@ -14,7 +14,17 @@ import { IAdministrador } from '../../../interfaces/usuarios';
 @Component({
   selector: 'app-administrador',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule, LazyLoadImageModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    TableModule,
+    InputTextModule,
+    IconFieldModule,
+    InputIconModule,
+    TagModule,
+    LazyLoadImageModule,
+  ],
   templateUrl: './administrador.component.html',
   styleUrl: './administrador.component.scss',
 })
@@ -24,7 +34,10 @@ export class AdministradorComponent implements OnInit {
   public loading: boolean = true;
   public selectedAdministradores: IAdministrador[] = [];
 
-  constructor(private administradoresService: AdministradoresService, private _cdr: ChangeDetectorRef) {}
+  constructor(
+    private administradoresService: AdministradoresService,
+    private _cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.getAdministradores();
@@ -36,14 +49,16 @@ export class AdministradorComponent implements OnInit {
       next: (data) => {
         this.administradores = data.map((administrador: IAdministrador) => ({
           ...administrador,
-          identification: administrador.identification ? this.formatIdentification(String(administrador.identification)) : '',
+          identification: administrador.identification
+            ? this.formatIdentification(String(administrador.identification))
+            : '',
         }));
         this.loading = false;
         this._cdr.detectChanges();
       },
       error: (error) => {
         console.error('Error al cargar los administradores:', error);
-      }
+      },
     });
   }
 
@@ -56,7 +71,4 @@ export class AdministradorComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dt?.filterGlobal(filterValue, 'contains');
   }
-
-
-
 }

@@ -14,7 +14,17 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 @Component({
   selector: 'app-estudiante',
   standalone: true,
-  imports: [ CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule, LazyLoadImageModule,],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    TableModule,
+    InputTextModule,
+    IconFieldModule,
+    InputIconModule,
+    TagModule,
+    LazyLoadImageModule,
+  ],
   templateUrl: './estudiante.component.html',
   styleUrl: './estudiante.component.scss',
 })
@@ -26,7 +36,7 @@ export class EstudianteComponent implements OnInit {
 
   constructor(
     private estudianteService: EstudianteService,
-    private _cdr: ChangeDetectorRef
+    private _cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {

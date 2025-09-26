@@ -7,19 +7,18 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.scss'
+  styleUrl: './menu.component.scss',
 })
 export class MenuComponent implements OnInit {
+  constructor(private _authServices: AuthService) {}
 
-    constructor(private _authServices: AuthService) {}
+  ngOnInit() {}
 
-    ngOnInit() {}
-
-    /**
-     * Método para cerrar la sesión del usuario
-     */
-    logout() {
-        // Lógica para cerrar la sesión
-        this._authServices.logout(); // No olvides manejar errores
-    }
+  /**
+   * Método para cerrar la sesión del usuario
+   */
+  logout() {
+    // Lógica para cerrar la sesión
+    this._authServices.logout(); // No olvides manejar errores
+  }
 }

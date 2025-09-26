@@ -16,22 +16,23 @@ export class AuthService {
     'Content-Type': 'application/json',
   });
 
-  constructor(private _http: HttpClient, private _router: Router) {}
+  constructor(
+    private _http: HttpClient,
+    private _router: Router,
+  ) {}
 
   login(identification: string, password: string): Observable<boolean> {
-    return this._http
-      .post<any>(`${this.baseUrl}auth/login`, { identification, password })
-      .pipe(
-        map((response: { info: any; token: string }) => {
-          if (response.token) {
-            localStorage.setItem('auth_token', response.token);
-            localStorage.setItem('auth_info', JSON.stringify(response.info));
-            return true;
-          } else {
-            return false;
-          }
-        })
-      );
+    return this._http.post<any>(`${this.baseUrl}auth/login`, { identification, password }).pipe(
+      map((response: { info: any; token: string }) => {
+        if (response.token) {
+          localStorage.setItem('auth_token', response.token);
+          localStorage.setItem('auth_info', JSON.stringify(response.info));
+          return true;
+        } else {
+          return false;
+        }
+      }),
+    );
   }
 
   isLoggedIn(): boolean {

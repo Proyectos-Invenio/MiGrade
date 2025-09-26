@@ -15,14 +15,14 @@ export class ProfesorService {
     'Content-Type': 'application/json',
   });
 
-  constructor(private _http: HttpClient, private _router: Router) {}
+  constructor(
+    private _http: HttpClient,
+    private _router: Router,
+  ) {}
 
   getProfesor(identification: any): Observable<any> {
     const token = localStorage.getItem('auth_token');
     const headers = this.headers.set('Authorization', `Bearer ${token}`);
-    return this._http.get<IProfesor>(
-      `${this.baseUrl}profesor/${identification}`,
-      { headers }
-    );
+    return this._http.get<IProfesor>(`${this.baseUrl}profesor/${identification}`, { headers });
   }
 }

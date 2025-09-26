@@ -2,20 +2,41 @@
   <div class="card mt-3">
     <div class="card-body">
       <h4 class="text-migrade">Crear Estudiante</h4>
-      <form [formGroup]="estudianteForm" (ngSubmit)="submitForm()" class="row g-3 needs-validation" novalidate>
+      <form
+        [formGroup]="estudianteForm"
+        (ngSubmit)="submitForm()"
+        class="row g-3 needs-validation"
+        novalidate
+      >
         <div class="col-md-6">
           <label for="identification" class="form-label">Cédula</label>
-          <input id="identification" formControlName="identification" class="form-control" required [ngClass]="{'is-invalid': estudianteForm.controls['identification'].invalid && estudianteForm.controls['identification'].touched}"/>
-          <div class="invalid-feedback">
-            Por favor, ingrese una cédula válida.
-          </div>
+          <input
+            id="identification"
+            formControlName="identification"
+            class="form-control"
+            required
+            [ngClass]="{
+              'is-invalid':
+                estudianteForm.controls['identification'].invalid &&
+                estudianteForm.controls['identification'].touched,
+            }"
+          />
+          <div class="invalid-feedback">Por favor, ingrese una cédula válida.</div>
         </div>
         <div class="col-md-6">
           <label for="nombre" class="form-label">Nombre</label>
-          <input id="nombre" formControlName="nombre" class="form-control" required [ngClass]="{'is-invalid': estudianteForm.controls['nombre'].invalid && estudianteForm.controls['nombre'].touched}"/>
-          <div class="invalid-feedback">
-            Por favor, ingrese un nombre válido.
-          </div>
+          <input
+            id="nombre"
+            formControlName="nombre"
+            class="form-control"
+            required
+            [ngClass]="{
+              'is-invalid':
+                estudianteForm.controls['nombre'].invalid &&
+                estudianteForm.controls['nombre'].touched,
+            }"
+          />
+          <div class="invalid-feedback">Por favor, ingrese un nombre válido.</div>
         </div>
         <div class="col-md-6">
           <label for="encargado" class="form-label">Encargado</label>
@@ -28,24 +49,47 @@
             placeholder="Seleccione un encargado"
             notFoundText="No se encontraron encargados"
             required
-            [ngClass]="{'is-invalid': estudianteForm.controls['encargado'].invalid && estudianteForm.controls['encargado'].touched}"
+            [ngClass]="{
+              'is-invalid':
+                estudianteForm.controls['encargado'].invalid &&
+                estudianteForm.controls['encargado'].touched,
+            }"
           >
           </ng-select>
-          <div class="invalid-feedback">
-            Por favor, seleccione un encargado.
-          </div>
+          <div class="invalid-feedback">Por favor, seleccione un encargado.</div>
         </div>
         <div class="col-md-6">
           <label for="email" class="form-label">Email</label>
-          <input id="email" formControlName="email" class="form-control" placeholder="ejemplo@gmail.com" type="email" required [ngClass]="{'is-invalid': estudianteForm.controls['email'].invalid && estudianteForm.controls['email'].touched}"/>
-          <div class="invalid-feedback">
-            Por favor, ingrese un correo electrónico válido.
-          </div>
+          <input
+            id="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="ejemplo@gmail.com"
+            type="email"
+            required
+            [ngClass]="{
+              'is-invalid':
+                estudianteForm.controls['email'].invalid &&
+                estudianteForm.controls['email'].touched,
+            }"
+          />
+          <div class="invalid-feedback">Por favor, ingrese un correo electrónico válido.</div>
         </div>
         <div class="col-md-6">
           <label for="password" class="form-label">Contraseña</label>
           <div class="input-group">
-            <input id="password" formControlName="password" class="form-control" type="password" required [ngClass]="{'is-invalid': estudianteForm.controls['password'].invalid && estudianteForm.controls['password'].touched}"/>
+            <input
+              id="password"
+              formControlName="password"
+              class="form-control"
+              type="password"
+              required
+              [ngClass]="{
+                'is-invalid':
+                  estudianteForm.controls['password'].invalid &&
+                  estudianteForm.controls['password'].touched,
+              }"
+            />
             <span class="input-group-text togglePassword">
               <i class="pi pi-eye" style="cursor: pointer"></i>
             </span>
@@ -56,14 +100,21 @@
         </div>
         <div class="col-md-6">
           <label for="sexo" class="form-label">Sexo</label>
-          <select id="sexo" formControlName="sexo" class="form-control" required [ngClass]="{'is-invalid': estudianteForm.controls['sexo'].invalid && estudianteForm.controls['sexo'].touched}">
+          <select
+            id="sexo"
+            formControlName="sexo"
+            class="form-control"
+            required
+            [ngClass]="{
+              'is-invalid':
+                estudianteForm.controls['sexo'].invalid && estudianteForm.controls['sexo'].touched,
+            }"
+          >
             <option value="" disabled selected>Seleccione el sexo</option>
             <option value="Masculino">Masculino</option>
             <option value="Femenino">Femenino</option>
           </select>
-          <div class="invalid-feedback">
-            Por favor, seleccione el sexo.
-          </div>
+          <div class="invalid-feedback">Por favor, seleccione el sexo.</div>
         </div>
         <div class="col-md-6">
           <label for="seccion" class="form-label">Sección</label>
@@ -76,12 +127,14 @@
             placeholder="Seleccione una sección"
             notFoundText="No se encontraron secciones"
             required
-            [ngClass]="{'is-invalid': estudianteForm.controls['seccion'].invalid && estudianteForm.controls['seccion'].touched}"
+            [ngClass]="{
+              'is-invalid':
+                estudianteForm.controls['seccion'].invalid &&
+                estudianteForm.controls['seccion'].touched,
+            }"
           >
           </ng-select>
-          <div class="invalid-feedback">
-            Por favor, seleccione una sección.
-          </div>
+          <div class="invalid-feedback">Por favor, seleccione una sección.</div>
         </div>
         <div class="d-flex justify-content-end mt-3">
           <button type="submit" class="btn btn-sm btn-migrade mt-3">

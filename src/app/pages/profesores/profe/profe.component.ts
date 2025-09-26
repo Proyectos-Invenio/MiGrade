@@ -36,7 +36,7 @@ export class ProfeComponent implements OnInit {
 
   constructor(
     private profesorService: ProfesorService,
-    private _cdr: ChangeDetectorRef
+    private _cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
@@ -73,10 +73,7 @@ export class ProfeComponent implements OnInit {
   }
 
   formatIdentification(identification: string): string {
-    return `${identification.charAt(0)}-${identification.slice(
-      1,
-      5
-    )}-${identification.slice(5)}`;
+    return `${identification.charAt(0)}-${identification.slice(1, 5)}-${identification.slice(5)}`;
   }
 
   // Aplicar filtro global

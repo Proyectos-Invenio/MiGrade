@@ -6,13 +6,13 @@ import { CardModule } from 'primeng/card';
   standalone: true,
   imports: [CardModule],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+  styleUrl: './profile.component.scss',
 })
 export class ProfileComponent {
   user = {
     rol: 'Administrador',
 
     nombre: 'Emilio Rodríguez',
-    identification: 504560241
+    identification: 504560241,
   };
 }

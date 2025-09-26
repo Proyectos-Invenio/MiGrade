@@ -1,10 +1,10 @@
 $primary: #0d6efd;
 $secondary: #6c757d;
-$tertiary: #558E99;
+$tertiary: #558e99;
 $success: #4caf50;
 $info: #2196f3;
 $warning: #ffc107;
-$danger: #DC3545;
+$danger: #dc3545;
 $light: #f8f9fa;
 $dark: #343a40;
 $white: #ffffff;
@@ -12,17 +12,17 @@ $migrade: #2e72b8;
 $gris: #efefef;
 
 $theme-colors: (
-    "primary":      $primary,
-    "secondary":    $secondary,
-    "success":      $success,
-    "info":         $info,
-    "warning":      $warning,
-    "danger":       $danger,
-    "light":        $light,
-    "dark":         $dark,
-    "white":        $white,
-    "migrade":    $migrade,
-    "gris":         $gris
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+  'white': $white,
+  'migrade': $migrade,
+  'gris': $gris,
 );
 
 $input-bg: $light;
@@ -36,37 +36,37 @@ $form-range-thumb-active-bg: $migrade;
 $card-border-color: #00000003 !important;
 
 /* Pagination */
-$pagination-hover-color:            $migrade;
-$pagination-color:                  $migrade;
-$pagination-border-color:           #e9ecef14;
+$pagination-hover-color: $migrade;
+$pagination-color: $migrade;
+$pagination-border-color: #e9ecef14;
 
-$pagination-active-color:           #fff;
-$pagination-active-bg:              $migrade;
-$pagination-active-border-color:    $migrade;
+$pagination-active-color: #fff;
+$pagination-active-bg: $migrade;
+$pagination-active-border-color: $migrade;
 
-$pagination-disabled-color:         $migrade;
-$pagination-disabled-bg:            #fff;
-$pagination-disabled-border-color:  #e9ecef14;
+$pagination-disabled-color: $migrade;
+$pagination-disabled-bg: #fff;
+$pagination-disabled-border-color: #e9ecef14;
 
-$pagination-hover-color:            #fff;
-$pagination-hover-bg:               $migrade;
-$pagination-hover-border-color:     $migrade;
+$pagination-hover-color: #fff;
+$pagination-hover-bg: $migrade;
+$pagination-hover-border-color: $migrade;
 
-$pagination-focus-color:            #fff;
-$pagination-focus-bg:               $migrade;
-$pagination-focus-box-shadow:       none;
+$pagination-focus-color: #fff;
+$pagination-focus-bg: $migrade;
+$pagination-focus-box-shadow: none;
 
 /* List Group */
 $list-group-active-color: #fff;
-$list-group-active-bg:    $migrade;
+$list-group-active-bg: $migrade;
 
 /* form-check-input */
-$form-check-input-bg:                     $light;
-$form-check-input-checked-bg-color:       $migrade;
+$form-check-input-bg: $light;
+$form-check-input-checked-bg-color: $migrade;
 
 /* Dropdown */
 $dropdown-border-color: none !important;
-$dropdown-font-size:    0.875rem;
+$dropdown-font-size: 0.875rem;
 
 /* modal */
 $modal-content-border-color: transparent !important;

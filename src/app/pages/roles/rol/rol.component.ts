@@ -13,9 +13,18 @@ import { IRoles } from '../../../interfaces/auth';
 @Component({
   selector: 'app-rol',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    TableModule,
+    InputTextModule,
+    IconFieldModule,
+    InputIconModule,
+    TagModule,
+  ],
   templateUrl: './rol.component.html',
-  styleUrl: './rol.component.scss'
+  styleUrl: './rol.component.scss',
 })
 export class RolComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
@@ -23,7 +32,10 @@ export class RolComponent implements OnInit {
   public loading: boolean = true;
   public selectedRoles: IRoles[] = [];
 
-  constructor(private rolesService: RolesService, private _cdr: ChangeDetectorRef) {}
+  constructor(
+    private rolesService: RolesService,
+    private _cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.getRoles();

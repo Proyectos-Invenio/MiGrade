@@ -13,9 +13,18 @@ import { IVisibilidadMenu } from '../../../interfaces/menu';
 @Component({
   selector: 'app-visibilidad-menu',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, TableModule, InputTextModule, IconFieldModule, InputIconModule, TagModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    TableModule,
+    InputTextModule,
+    IconFieldModule,
+    InputIconModule,
+    TagModule,
+  ],
   templateUrl: './visibilidad-menu.component.html',
-  styleUrl: './visibilidad-menu.component.scss'
+  styleUrl: './visibilidad-menu.component.scss',
 })
 export class VisibilidadMenuComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
@@ -23,7 +32,10 @@ export class VisibilidadMenuComponent implements OnInit {
   public loading: boolean = true;
   public selectedMenu: IVisibilidadMenu[] = [];
 
-  constructor(private visibilidadmenuService: VisibilidadMenuService, private _cdr: ChangeDetectorRef) {}
+  constructor(
+    private visibilidadmenuService: VisibilidadMenuService,
+    private _cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     this.getMenu();

@@ -15,15 +15,15 @@ export class EstudianteService {
     'Content-Type': 'application/json',
   });
 
-  constructor(private _http: HttpClient, private _router: Router) {}
+  constructor(
+    private _http: HttpClient,
+    private _router: Router,
+  ) {}
 
   getEstudiante(identification: any): Observable<any> {
     const token = localStorage.getItem('auth_token');
     const headers = this.headers.set('Authorization', `Bearer ${token}`);
-    return this._http.get<IEstudiante>(
-      `${this.baseUrl}estudiante/${identification}`,
-      { headers }
-    );
+    return this._http.get<IEstudiante>(`${this.baseUrl}estudiante/${identification}`, { headers });
   }
 
   crearEstudiante(datos: any): Observable<any> {

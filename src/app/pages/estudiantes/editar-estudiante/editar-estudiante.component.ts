@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators, AbstractControl } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
 import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { EstudianteService } from '../../../services/estudiante.service';
 import { SeccionService } from '../../../services/secciones.service';
@@ -14,7 +21,7 @@ import Inputmask from 'inputmask';
 @Component({
   selector: 'app-editar-estudiante',
   standalone: true,
-  imports: [ CommonModule, FormsModule, ReactiveFormsModule, RouterModule, NgSelectModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, NgSelectModule],
   templateUrl: './editar-estudiante.component.html',
   styleUrl: './editar-estudiante.component.scss',
 })
@@ -32,7 +39,7 @@ export class EditarEstudianteComponent implements OnInit {
     private _seccionService: SeccionService,
     private _encargadoService: EncargadoService,
     private _router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
     // Inicialización del formulario y obtención del ID del estudiante desde la URL
     this.estudianteForm = this.createForm();
@@ -108,16 +115,12 @@ export class EditarEstudianteComponent implements OnInit {
 
   // Aplicar máscara de entrada al campo de identificación
   private applyInputMask(): void {
-    const identificationInput = document.getElementById(
-      'identification'
-    ) as HTMLInputElement;
+    const identificationInput = document.getElementById('identification') as HTMLInputElement;
     Inputmask({ mask: '9-9999-9999' }).mask(identificationInput);
   }
 
   // Método personalizado para validar el campo identification
-  private identificationValidator(
-    control: AbstractControl
-  ): { [key: string]: any } | null {
+  private identificationValidator(control: AbstractControl): { [key: string]: any } | null {
     if (!control.value) {
       return { invalidIdentification: true }; // Retorna error si el valor es nulo o indefinido
     }
@@ -135,33 +138,31 @@ export class EditarEstudianteComponent implements OnInit {
       estudianteData.identification = estudianteData.identification.toString().replace(/\D/g, '');
 
       // Llamar al servicio para actualizar los datos del estudiante
-      this._estudianteService
-        .updateEstudiante(this.estudianteId, estudianteData)
-        .subscribe({
-          // Manejar la respuesta exitosa
-          next: (response) => {
-            console.log('Estudiante actualizado exitosamente', response);
-            // Mostrar mensaje de éxito y redirigir al usuario
-            Swal.fire({
-              icon: 'success',
-              title: '¡Estudiante actualizado!',
-              text: 'El estudiante se ha actualizado exitosamente.',
-              confirmButtonText: 'Aceptar',
-            }).then(() => {
-              this._router.navigate(['estudiantes/estudiante']);
-            });
-          },
-          // Manejar errores en la actualización
-          error: (error) => {
-            console.error('Error al actualizar estudiante', error);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: error.error.message,
-              confirmButtonText: 'Aceptar',
-            });
-          },
-        });
+      this._estudianteService.updateEstudiante(this.estudianteId, estudianteData).subscribe({
+        // Manejar la respuesta exitosa
+        next: (response) => {
+          console.log('Estudiante actualizado exitosamente', response);
+          // Mostrar mensaje de éxito y redirigir al usuario
+          Swal.fire({
+            icon: 'success',
+            title: '¡Estudiante actualizado!',
+            text: 'El estudiante se ha actualizado exitosamente.',
+            confirmButtonText: 'Aceptar',
+          }).then(() => {
+            this._router.navigate(['estudiantes/estudiante']);
+          });
+        },
+        // Manejar errores en la actualización
+        error: (error) => {
+          console.error('Error al actualizar estudiante', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: error.error.message,
+            confirmButtonText: 'Aceptar',
+          });
+        },
+      });
     } else {
       // Si el formulario es inválido, marcar todos los campos como tocados y mostrar mensaje de error
       console.log('Formulario inválido');

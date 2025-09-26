@@ -16,10 +16,12 @@ export function app(): express.Express {
   });
 
   // Serve static files from /browser
-  server.use(express.static(browserDistFolder, {
-    maxAge: '1y',
-    index: 'index.html',
-  }));
+  server.use(
+    express.static(browserDistFolder, {
+      maxAge: '1y',
+      index: 'index.html',
+    }),
+  );
 
   // Fallback to index.html for other routes (for Angular routing)
   server.get('*', (req, res) => {

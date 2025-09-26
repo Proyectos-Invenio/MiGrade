@@ -15,7 +15,10 @@ import { FooterComponent } from './components/footer/footer.component';
 export class AppComponent {
   public isLoggedIn: boolean = false;
 
-  constructor(private _authService: AuthService, private _router: Router) {
+  constructor(
+    private _authService: AuthService,
+    private _router: Router,
+  ) {
     window.addEventListener('DOMContentLoaded', (event) => {
       // Toggle the side navigation
       const sidebarToggle = document.body.querySelector('#sidebarToggle');
@@ -29,7 +32,7 @@ export class AppComponent {
           document.body.classList.toggle('sb-sidenav-toggled');
           localStorage.setItem(
             'sb|sidebar-toggle',
-            document.body.classList.contains('sb-sidenav-toggled').toString()
+            document.body.classList.contains('sb-sidenav-toggled').toString(),
           );
         });
       }

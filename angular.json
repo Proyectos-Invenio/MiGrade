@@ -54,13 +54,8 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/primeicons/primeicons.css"
-            ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ],
+            "styles": ["src/styles.scss", "node_modules/primeicons/primeicons.css"],
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"],
             "allowedCommonJsDependencies": ["sweetalert2"]
           },
           "configurations": {

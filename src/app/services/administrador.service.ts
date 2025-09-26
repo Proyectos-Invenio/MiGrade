@@ -15,14 +15,16 @@ export class AdministradoresService {
     'Content-Type': 'application/json',
   });
 
-  constructor(private _http: HttpClient, private _router: Router) {}
+  constructor(
+    private _http: HttpClient,
+    private _router: Router,
+  ) {}
 
   getAdministradores(identification: any): Observable<any> {
     const token = localStorage.getItem('auth_token');
     const headers = this.headers.set('Authorization', `Bearer ${token}`);
-    return this._http.get<IAdministrador>(
-      `${this.baseUrl}administrador/${identification}`,
-      { headers }
-    );
+    return this._http.get<IAdministrador>(`${this.baseUrl}administrador/${identification}`, {
+      headers,
+    });
   }
 }

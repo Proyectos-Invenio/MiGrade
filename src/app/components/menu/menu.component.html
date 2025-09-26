@@ -1,25 +1,46 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-white">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" [routerLink]="['/']">
-        <img src="svg/migrade.svg" alt="" width="180">
-    </a>
-    <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="bi bi-list text-migrade"></i></button>
-    <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="Buscar..." aria-label="Buscar..." aria-describedby="btnNavbarSearch" />
-            <button class="btn btn-light" id="btnNavbarSearch" type="button"><i class="bi bi-search text-migrade"></i></button>
-        </div>
-    </form>
-    <!-- Navbar-->
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown">
-            <a class="dropdown-toggle btn btn-light border-0" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="pi pi-user text-migrade"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" [routerLink]="['auth/profile']">Perfil</a></li>
-                <li><span class="dropdown-item cursor-pointer" (click)="logout()">Cerrar Sesión</span></li>
-            </ul>
-        </li>
-    </ul>
+  <!-- Navbar Brand-->
+  <a class="navbar-brand ps-3" [routerLink]="['/']">
+    <img src="svg/migrade.svg" alt="" width="180" />
+  </a>
+  <!-- Sidebar Toggle-->
+  <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
+    <i class="bi bi-list text-migrade"></i>
+  </button>
+  <!-- Navbar Search-->
+  <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+    <div class="input-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Buscar..."
+        aria-label="Buscar..."
+        aria-describedby="btnNavbarSearch"
+      />
+      <button class="btn btn-light" id="btnNavbarSearch" type="button">
+        <i class="bi bi-search text-migrade"></i>
+      </button>
+    </div>
+  </form>
+  <!-- Navbar-->
+  <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+    <li class="nav-item dropdown">
+      <a
+        class="dropdown-toggle btn btn-light border-0"
+        id="navbarDropdown"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        ><i class="pi pi-user text-migrade"></i
+      ></a>
+      <ul
+        class="dropdown-menu dropdown-menu-end border-0 shadow-sm"
+        aria-labelledby="navbarDropdown"
+      >
+        <li><a class="dropdown-item" [routerLink]="['auth/profile']">Perfil</a></li>
+        <li><span class="dropdown-item cursor-pointer" (click)="logout()">Cerrar Sesión</span></li>
+      </ul>
+    </li>
+  </ul>
 </nav>

@@ -2,13 +2,25 @@
   <div class="card mt-3">
     <div class="card-body">
       <h4 class="text-migrade">Crear Sección</h4>
-      <form [formGroup]="seccionForm" (submit)="submitForm()" class="row g-3 needs-validation" novalidate>
+      <form
+        [formGroup]="seccionForm"
+        (submit)="submitForm()"
+        class="row g-3 needs-validation"
+        novalidate
+      >
         <div class="col-md-6">
           <label for="seccion" class="form-label">Sección</label>
-          <input id="seccion" formControlName="seccion" class="form-control" required [ngClass]="{'is-invalid': seccionForm.controls['seccion'].invalid && seccionForm.controls['seccion'].touched}"/>
-          <div class="invalid-feedback">
-            Por favor, ingrese una sección válida.
-          </div>
+          <input
+            id="seccion"
+            formControlName="seccion"
+            class="form-control"
+            required
+            [ngClass]="{
+              'is-invalid':
+                seccionForm.controls['seccion'].invalid && seccionForm.controls['seccion'].touched,
+            }"
+          />
+          <div class="invalid-feedback">Por favor, ingrese una sección válida.</div>
         </div>
         <div class="col-md-6">
           <label for="profesor" class="form-label">Profesor Guía</label>
@@ -21,12 +33,14 @@
             placeholder="Seleccione un profesor"
             notFoundText="No se encontraron profesores"
             required
-            [ngClass]="{'is-invalid': seccionForm.controls['profesor'].invalid && seccionForm.controls['profesor'].touched}"
+            [ngClass]="{
+              'is-invalid':
+                seccionForm.controls['profesor'].invalid &&
+                seccionForm.controls['profesor'].touched,
+            }"
           >
           </ng-select>
-          <div class="invalid-feedback">
-            Por favor, seleccione un profesor.
-          </div>
+          <div class="invalid-feedback">Por favor, seleccione un profesor.</div>
         </div>
         <div class="d-flex justify-content-end mt-3">
           <button type="submit" class="btn btn-sm btn-migrade mt-3">
@@ -37,4 +51,3 @@
     </div>
   </div>
 </div>
-

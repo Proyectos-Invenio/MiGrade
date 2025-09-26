@@ -11,7 +11,6 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { EncargadoService } from '../../../services/encargado.service';
 import { IEncargado } from '../../../interfaces/usuarios';
 
-
 @Component({
   selector: 'app-encargado',
   standalone: true,
@@ -37,7 +36,7 @@ export class EncargadoComponent implements OnInit {
 
   constructor(
     private encargadoService: EncargadoService,
-    private _cdr: ChangeDetectorRef
+    private _cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
@@ -74,10 +73,7 @@ export class EncargadoComponent implements OnInit {
   }
 
   formatIdentification(identification: string): string {
-    return `${identification.charAt(0)}-${identification.slice(
-      1,
-      5
-    )}-${identification.slice(5)}`;
+    return `${identification.charAt(0)}-${identification.slice(1, 5)}-${identification.slice(5)}`;
   }
 
   // Aplicar filtro global

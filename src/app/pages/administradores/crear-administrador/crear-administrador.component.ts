@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './crear-administrador.component.html',
-  styleUrl: './crear-administrador.component.scss'
+  styleUrl: './crear-administrador.component.scss',
 })
-export class CrearAdministradorComponent {
-
-}
+export class CrearAdministradorComponent {}

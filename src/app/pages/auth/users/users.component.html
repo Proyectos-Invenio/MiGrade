@@ -1,147 +1,225 @@
 <div class="card-body p-4">
-    <div class="d-flex justify-content-end mb-3">
-        <!-- Botón Crear Usuario -->
-        <button type="button" class="btn btn-migrade" data-bs-toggle="modal" data-bs-target="#crearUsuarioModal">
-            <i class="bi bi-person-add"></i> Crear Usuario
-        </button>
-    </div>
-    <div *ngIf="usuarios.length > 0" class="card">
-        <p-table
-            #dt
-            [value]="usuarios"
-            [rows]="15"
-            stripedRows
-            [rowsPerPageOptions]="[15, 30, 50, 100, 150, 200]"
-            [loading]="loading"
-            [paginator]="true"
-            [globalFilterFields]="[
-                'id',
-                'nombre',
-                'usuario',
-                'correo',
-                'pais'
-            ]"
-            class="custom-table">
-            <ng-template pTemplate="caption">
-                <div class="d-flex justify-content-end">
-                    <p-iconfield iconPosition="left" class="ml-auto">
-                        <p-inputicon styleClass="pi pi-search" />
-                        <input
-                            pInputText
-                            type="text"
-                            size="small"
-                            class="input-sm"
-                            (input)="applyFilterGlobal($event)"
-                            placeholder="Buscar..." />
-                    </p-iconfield>
-                </div>
-            </ng-template>
-            <ng-template pTemplate="header">
-                <tr>
-                    <th pSortableColumn="id">ID <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i></th>
-                    <th pSortableColumn="nombre">Nombre <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i></th>
-                    <th pSortableColumn="usuario">Usuario <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i></th>
-                    <th pSortableColumn="correo">Correo electrónico <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i></th>
-                    <th pSortableColumn="pais">País <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i></th>
-                    <th>Opciones</th>
-                </tr>
-            </ng-template>
+  <div class="d-flex justify-content-end mb-3">
+    <!-- Botón Crear Usuario -->
+    <button
+      type="button"
+      class="btn btn-migrade"
+      data-bs-toggle="modal"
+      data-bs-target="#crearUsuarioModal"
+    >
+      <i class="bi bi-person-add"></i> Crear Usuario
+    </button>
+  </div>
+  <div *ngIf="usuarios.length > 0" class="card">
+    <p-table
+      #dt
+      [value]="usuarios"
+      [rows]="15"
+      stripedRows
+      [rowsPerPageOptions]="[15, 30, 50, 100, 150, 200]"
+      [loading]="loading"
+      [paginator]="true"
+      [globalFilterFields]="['id', 'nombre', 'usuario', 'correo', 'pais']"
+      class="custom-table"
+    >
+      <ng-template pTemplate="caption">
+        <div class="d-flex justify-content-end">
+          <p-iconfield iconPosition="left" class="ml-auto">
+            <p-inputicon styleClass="pi pi-search" />
+            <input
+              pInputText
+              type="text"
+              size="small"
+              class="input-sm"
+              (input)="applyFilterGlobal($event)"
+              placeholder="Buscar..."
+            />
+          </p-iconfield>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id">ID <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i></th>
+          <th pSortableColumn="nombre">
+            Nombre <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
+          </th>
+          <th pSortableColumn="usuario">
+            Usuario <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
+          </th>
+          <th pSortableColumn="correo">
+            Correo electrónico <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
+          </th>
+          <th pSortableColumn="pais">
+            País <i class="pi pi-sort-alt" style="font-size: 0.6rem"></i>
+          </th>
+          <th>Opciones</th>
+        </tr>
+      </ng-template>
 
-            <ng-template pTemplate="body" let-item>
-                <tr>
-                    <td>{{ item.id }}</td>
-                    <td>{{ item.nombre }}</td>
-                    <td>{{ item.usuario }}</td>
-                    <td>{{ item.correo }}</td>
-                    <td>
-                        <p-tag
-                            [value]="item.pais"
-                            [severity]="getPais(item.pais)">
-                        </p-tag>
-                    </td>
-                    <td>
-                        <div class="dropdown">
-                            <a class="btn btn-migrade btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Opciones
-                            </a>
-                            <ul class="dropdown-menu shadow-sm">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-person-fill"></i> Datos de Usuario</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-key-fill"></i> Permisos de Usuario</a></li>
-                                <!-- Opción en el menú desplegable -->
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#changePasswordModal"><i class="bi bi-person-fill-lock"></i> Cambiar Contraseña</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-person-fill-slash"></i> Desactivar Usuario</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="emptymessage">
-                <tr>
-                    <td colspan="15">No se encontraron facturas.</td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
+      <ng-template pTemplate="body" let-item>
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.usuario }}</td>
+          <td>{{ item.correo }}</td>
+          <td>
+            <p-tag [value]="item.pais" [severity]="getPais(item.pais)"> </p-tag>
+          </td>
+          <td>
+            <div class="dropdown">
+              <a
+                class="btn btn-migrade btn-sm dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Opciones
+              </a>
+              <ul class="dropdown-menu shadow-sm">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="bi bi-person-fill"></i> Datos de Usuario</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="bi bi-key-fill"></i> Permisos de Usuario</a
+                  >
+                </li>
+                <!-- Opción en el menú desplegable -->
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#changePasswordModal"
+                    ><i class="bi bi-person-fill-lock"></i> Cambiar Contraseña</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="bi bi-person-fill-slash"></i> Desactivar Usuario</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="15">No se encontraron facturas.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
 </div>
 
 <!-- Modal Crear Usuario -->
-<div class="modal fade" id="crearUsuarioModal" tabindex="-1" aria-labelledby="crearUsuarioLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="crearUsuarioLabel">Crear Usuario</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="formCrearUsuario" [formGroup]="crearUsuarioForm" (submit)="crearUsuario()">
-                    <div class="mb-3">
-                        <label for="nombreUsuarioLogin" class="form-label">Usuario</label>
-                        <input type="text" class="form-control" formControlName="usuario" id="nombreUsuarioLogin" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="correoUsuario" class="form-label">Contraseña</label>
-                        <input type="email" class="form-control" formControlName="password" id="correoUsuario" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nombreUsuario" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" formControlName="nombre" id="nombreUsuario" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="correoUsuario" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" formControlName="email" id="correoUsuario" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="paisUsuario" class="form-label">País</label>
-                        <select class="form-select" aria-label="Default select example" formControlName="pais" id="paisUsuario" required>
-                            <option selected>Selecciona un país</option>
-                            <option value="1">Costa Rica</option>
-                            <option value="2">Nicaragua</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-migrade w-100" data-bs-dismiss="modal"><i class="bi bi-person-add"></i> Crear Usuario</button>
-                </form>
-            </div>
-        </div>
+<div
+  class="modal fade"
+  id="crearUsuarioModal"
+  tabindex="-1"
+  aria-labelledby="crearUsuarioLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="crearUsuarioLabel">Crear Usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formCrearUsuario" [formGroup]="crearUsuarioForm" (submit)="crearUsuario()">
+          <div class="mb-3">
+            <label for="nombreUsuarioLogin" class="form-label">Usuario</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="usuario"
+              id="nombreUsuarioLogin"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="correoUsuario" class="form-label">Contraseña</label>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="password"
+              id="correoUsuario"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="nombreUsuario" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="nombre"
+              id="nombreUsuario"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="correoUsuario" class="form-label">Correo Electrónico</label>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              id="correoUsuario"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="paisUsuario" class="form-label">País</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              formControlName="pais"
+              id="paisUsuario"
+              required
+            >
+              <option selected>Selecciona un país</option>
+              <option value="1">Costa Rica</option>
+              <option value="2">Nicaragua</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-migrade w-100" data-bs-dismiss="modal">
+            <i class="bi bi-person-add"></i> Crear Usuario
+          </button>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Modal para cambiar contraseña -->
-<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm  border-0">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h6 class="modal-title" id="changePasswordModalLabel">Cambiar Contraseña</h6>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="newPassword" class="form-label">Nueva Contraseña</label>
-                        <input type="password" class="form-control" id="newPassword" required>
-                    </div>
-                    <button type="button" class="btn btn-migrade w-100" id="savePasswordButton">Cambiar Contraseña</button>
-                </form>
-            </div>
-        </div>
+<div
+  class="modal fade"
+  id="changePasswordModal"
+  tabindex="-1"
+  aria-labelledby="changePasswordModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-sm border-0">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h6 class="modal-title" id="changePasswordModalLabel">Cambiar Contraseña</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="newPassword" class="form-label">Nueva Contraseña</label>
+            <input type="password" class="form-control" id="newPassword" required />
+          </div>
+          <button type="button" class="btn btn-migrade w-100" id="savePasswordButton">
+            Cambiar Contraseña
+          </button>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

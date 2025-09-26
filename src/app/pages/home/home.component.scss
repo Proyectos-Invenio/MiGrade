@@ -1,0 +1,479 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 20px;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+// Banner de Bienvenida
+.welcome-banner {
+  background: linear-gradient(135deg, #4285f4 0%, #2c5ecc 100%);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-content {
+  flex: 1;
+  z-index: 2;
+  position: relative;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subject-info {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.motivational-quote {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-style: italic;
+}
+
+.school-crest {
+  z-index: 2;
+  position: relative;
+}
+
+.crest-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+// Contenido Principal
+.main-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  min-height: 600px;
+}
+
+// Sección Izquierda
+.left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+// Sección Derecha
+.right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+// Gráfico de Rendimiento
+.performance-section {
+  flex: 1;
+}
+
+.performance-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.chart-nav {
+  background: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #6b7280;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #e5e7eb;
+  }
+}
+
+.pie-chart-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+// Anuncios Recientes
+.announcements-section {
+  flex: 1;
+}
+
+.announcements-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 20px 0;
+}
+
+.announcement-content {
+  flex: 1;
+}
+
+// Estilos para el carrusel de PrimeNG
+::ng-deep .announcement-carousel {
+  .p-carousel {
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .p-carousel-content {
+    height: 100%;
+  }
+
+  .p-carousel-item {
+    height: 100%;
+  }
+
+  .carousel-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .p-carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+
+  .p-carousel-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.p-highlight {
+      background: #8b5cf6;
+      transform: scale(1.2);
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .p-carousel-prev,
+  .p-carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+
+    &:hover {
+      background: white;
+      transform: translateY(-50%) scale(1.1);
+    }
+  }
+
+  .p-carousel-prev {
+    left: 10px;
+  }
+
+  .p-carousel-next {
+    right: 10px;
+  }
+}
+
+// Calendario
+.calendar-section {
+  flex: 1;
+}
+
+.calendar-card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.calendar-month {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.calendar-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-btn {
+  background: #f3f4f6;
+  border: none;
+  border-radius: 6px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #6b7280;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #e5e7eb;
+  }
+}
+
+.calendar-grid {
+  flex: 1;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.day-label {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  padding: 4px 0;
+}
+
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.date {
+  text-align: center;
+  padding: 4px;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.current-date {
+    background: #4285f4;
+    color: white;
+    font-weight: 600;
+  }
+
+  &.prev-month,
+  &.next-month {
+    color: #9ca3af;
+  }
+
+  &:hover:not(.current-date) {
+    background: #f3f4f6;
+  }
+}
+
+// Clases de Hoy
+.classes-section {
+  flex: 1;
+}
+
+.classes-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.classes-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.class-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+  }
+}
+
+.class-indicator {
+  width: 4px;
+  height: 40px;
+  border-radius: 2px;
+
+  &.indicator-math {
+    background: #ef4444;
+  }
+
+  &.indicator-science {
+    background: #10b981;
+  }
+}
+
+.class-info {
+  flex: 1;
+}
+
+.class-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.class-time {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+// Responsive
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .crest-image {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 15px;
+  }
+
+  .welcome-banner {
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .welcome-title {
+    font-size: 1.8rem;
+  }
+
+  .crest-image {
+    width: 70px;
+    height: 70px;
+  }
+}
